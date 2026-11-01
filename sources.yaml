@@ -1,0 +1,69 @@
+# Official pages the bot watches for new recruitment notices.
+# Add a line to watch a new page. Only official government / university sites.
+#   level: central | state | university | district
+#   state: Delhi | Haryana | Rajasthan | Uttar Pradesh | Bihar | India
+# If a page stops working, the bot lists it in the run log under "Sources needing attention".
+
+sources:
+  # ---------------- Central ----------------
+  - {name: SSC, level: central, state: India, url: "https://ssc.gov.in/"}
+  - {name: UPSC Recruitment, level: central, state: India, url: "https://upsc.gov.in/recruitment/recruitment-advertisement"}
+  - {name: UPSC Exams, level: central, state: India, url: "https://upsc.gov.in/examinations/active-exams"}
+  - {name: IBPS, level: central, state: India, url: "https://www.ibps.in/"}
+  - {name: Employment News, level: central, state: India, url: "https://www.employmentnews.gov.in/"}
+  - {name: RRB Chandigarh, level: central, state: India, url: "https://www.rrbcdg.gov.in/"}
+  - {name: RRB Ajmer, level: central, state: India, url: "https://www.rrbajmer.gov.in/"}
+  - {name: RRB Allahabad, level: central, state: India, url: "https://www.rrbald.gov.in/"}
+  - {name: RRB Patna, level: central, state: India, url: "https://www.rrbpatna.gov.in/"}
+  - {name: AIIMS New Delhi, level: central, state: Delhi, url: "https://www.aiims.edu/index.php/en/notices/recruitment/aiims-recruitment"}
+  - {name: AIIMS Patna, level: central, state: Bihar, url: "https://aiimspatna.edu.in/"}
+  - {name: AIIMS Jodhpur, level: central, state: Rajasthan, url: "https://www.aiimsjodhpur.edu.in/"}
+  - {name: DRDO, level: central, state: India, url: "https://www.drdo.gov.in/drdo/careers"}
+  - {name: ISRO, level: central, state: India, url: "https://www.isro.gov.in/Careers.html"}
+
+  # ---------------- Delhi ----------------
+  - {name: DSSSB, level: state, state: Delhi, url: "https://dsssb.delhi.gov.in/"}
+  - {name: Delhi High Court, level: state, state: Delhi, url: "https://delhihighcourt.nic.in/web/recruitment"}
+  - {name: Delhi Govt Jobs, level: state, state: Delhi, url: "https://delhi.gov.in/jobs"}
+
+  # ---------------- Haryana ----------------
+  - {name: HPSC, level: state, state: Haryana, url: "https://hpsc.gov.in/"}
+  - {name: HSSC, level: state, state: Haryana, url: "https://hssc.gov.in/"}
+  - {name: Punjab & Haryana High Court, level: state, state: Haryana, url: "https://highcourtchd.gov.in/?trs=rec"}
+
+  # ---------------- Rajasthan ----------------
+  - {name: RPSC, level: state, state: Rajasthan, url: "https://rpsc.rajasthan.gov.in/"}
+  - {name: RSSB, level: state, state: Rajasthan, url: "https://rssb.rajasthan.gov.in/"}
+  - {name: Rajasthan Recruitment Portal, level: state, state: Rajasthan, url: "https://recruitment.rajasthan.gov.in/"}
+  - {name: Rajasthan High Court, level: state, state: Rajasthan, url: "https://hcraj.nic.in/hcraj/recruitment.php"}
+
+  # ---------------- Uttar Pradesh ----------------
+  - {name: UPPSC, level: state, state: Uttar Pradesh, url: "https://uppsc.up.nic.in/"}
+  - {name: UPSSSC, level: state, state: Uttar Pradesh, url: "https://upsssc.gov.in/"}
+  - {name: UP Police Board, level: state, state: Uttar Pradesh, url: "https://uppbpb.gov.in/"}
+  - {name: Allahabad High Court, level: state, state: Uttar Pradesh, url: "https://www.allahabadhighcourt.in/"}
+
+  # ---------------- Bihar ----------------
+  - {name: BPSC, level: state, state: Bihar, url: "https://bpsc.bihar.gov.in/"}
+  - {name: BSSC, level: state, state: Bihar, url: "https://bssc.bihar.gov.in/"}
+  - {name: Bihar Police CSBC, level: state, state: Bihar, url: "https://csbc.bihar.gov.in/"}
+  - {name: BPSSC, level: state, state: Bihar, url: "https://bpssc.bihar.gov.in/"}
+  - {name: Patna High Court, level: state, state: Bihar, url: "https://patnahighcourt.gov.in/"}
+
+  # ---------------- Universities ----------------
+  - {name: Delhi University, level: university, state: Delhi, url: "https://www.du.ac.in/"}
+  - {name: JNU, level: university, state: Delhi, url: "https://www.jnu.ac.in/career"}
+  - {name: Jamia Millia Islamia, level: university, state: Delhi, url: "https://www.jmi.ac.in/"}
+  - {name: BHU, level: university, state: Uttar Pradesh, url: "https://www.bhu.ac.in/Site/Page/1_2_Recruitment"}
+  - {name: Allahabad University, level: university, state: Uttar Pradesh, url: "https://www.allduniv.ac.in/"}
+  - {name: Lucknow University, level: university, state: Uttar Pradesh, url: "https://www.lkouniv.ac.in/"}
+  - {name: Central University of Haryana, level: university, state: Haryana, url: "https://www.cuh.ac.in/"}
+  - {name: Kurukshetra University, level: university, state: Haryana, url: "https://kuk.ac.in/"}
+  - {name: University of Rajasthan, level: university, state: Rajasthan, url: "https://www.uniraj.ac.in/"}
+  - {name: Central University of Rajasthan, level: university, state: Rajasthan, url: "https://www.curaj.ac.in/"}
+  - {name: Patna University, level: university, state: Bihar, url: "https://www.patnauniversity.ac.in/"}
+  - {name: Central University of South Bihar, level: university, state: Bihar, url: "https://www.cusb.ac.in/"}
+  - {name: IIT Delhi, level: university, state: Delhi, url: "https://home.iitd.ac.in/jobs-iitd/index.html"}
+  - {name: IIT Patna, level: university, state: Bihar, url: "https://www.iitp.ac.in/"}
+
+  # District websites (about 200 across the 5 states) come in phase 2.

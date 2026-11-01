@@ -1,0 +1,21 @@
+# ---------------------------------------------------------------
+#  Sarkari Naukri Turant - settings (no coding needed)
+# ---------------------------------------------------------------
+brand: ""                         # empty = use the channel's own name from YouTube
+voice: hi-IN-MadhurNeural         # Hindi male voice. Female: hi-IN-SwaraNeural
+voice_rate: "+5%"
+category_id: "27"                 # Education
+
+gemini_model: gemini-flash-latest
+groq_model: llama-3.3-70b-versatile
+
+max_new_per_run: 10               # notices read per check (every 2 hours)
+short_min_importance: 5           # 1-10: only bigger vacancies get their own Short
+shorts_per_run: 2                 # Shorts posted per check at most
+max_uploads_per_day: 5            # YouTube allows about 6 a day per Google project
+digest_min_items: 2               # evening "all jobs today" video needs at least this many
+digest_max_items: 15
+
+outro_line1: सरकारी नौकरी
+outro_line2: सबसे पहले
+outro_narration: "ऐसी ही सरकारी नौकरियों की सबसे पहले जानकारी के लिए चैनल को सब्सक्राइब करें। आवेदन से पहले आधिकारिक नोटिफिकेशन ज़रूर पढ़ें।"

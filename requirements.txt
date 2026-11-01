@@ -1,0 +1,9 @@
+requests
+PyYAML
+Pillow
+edge-tts
+gTTS
+google-api-python-client
+google-auth
+playwright
+urllib3
