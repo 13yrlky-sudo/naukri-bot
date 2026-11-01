@@ -646,9 +646,12 @@ def quota_left(st, cfg):
 def job_watch(cfg, st, dry):
     work = OUT / f"watch-{now_ist():%Y%m%d-%H%M}"
     work.mkdir(parents=True, exist_ok=True)
+    retry = st.pop("retry", []) if not dry else []  # notices that failed last time (e.g. AI limits)
     new = watch(cfg, st, int(cfg.get("max_new_per_run", 10)), test_mode=dry)
-    log(f"{len(new)} new candidate notices")
-    for n in new:
+    log(f"{len(new)} new candidate notices, {len(retry)} to retry")
+    todo = (retry + new)[:int(cfg.get("max_new_per_run", 10)) + 5]
+    st["retry"] = (retry + new)[len(todo):]  # anything beyond this run's limit waits for the next run
+    for n in todo:
         try:
             log(f"reading: [{n['source']}] {n['text'][:90]}")
             text, kind = notice_text(n["url"], work)
@@ -667,6 +670,9 @@ def job_watch(cfg, st, dry):
             log(f"  ✓ {f.get('org')} | {f.get('post_en')} | posts={f.get('total_posts')} | last={f.get('last_date')} | imp={f['importance']}")
         except Exception as e:
             log(f"  failed: {str(e)[:200]}")
+            if "AI providers failed" in str(e) and n.get("tries", 0) < 6:
+                n["tries"] = n.get("tries", 0) + 1
+                st.setdefault("retry", []).append(n)  # try again in 2 hours
     # post Shorts for the most important pending notices
     min_imp = int(cfg.get("short_min_importance", 5))
     keep_for_digest = 1  # always leave one upload for the evening digest
