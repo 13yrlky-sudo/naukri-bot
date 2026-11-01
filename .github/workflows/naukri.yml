@@ -1,0 +1,89 @@
+name: Sarkari Naukri Turant
+
+on:
+  schedule:
+    - cron: "23 */2 * * *"   # check official sources every 2 hours
+    - cron: "41 14 * * *"    # evening digest, ~8:10 pm IST
+  workflow_dispatch:
+    inputs:
+      job:
+        description: What to run
+        type: choice
+        options: [watch, digest]
+      dry_run:
+        description: Test only (make videos, don't upload)
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: naukri
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg poppler-utils tesseract-ocr tesseract-ocr-hin fonts-dejavu-core > /dev/null
+          pip install -q -r requirements.txt
+          python -m playwright install --with-deps chromium > /dev/null
+          G=https://github.com/google/fonts/raw/main/ofl
+          mkdir -p assets/fonts assets/maps
+          for w in Medium SemiBold Bold ExtraBold; do
+            [ -f assets/fonts/BarlowCondensed-$w.ttf ] || curl -fsSL -o assets/fonts/BarlowCondensed-$w.ttf $G/barlowcondensed/BarlowCondensed-$w.ttf || true
+            [ -f assets/fonts/Mukta-$w.ttf ] || curl -fsSL -o assets/fonts/Mukta-$w.ttf $G/mukta/Mukta-$w.ttf || true
+          done
+          NE=https://github.com/nvkelso/natural-earth-vector/raw/master/geojson
+          [ -f assets/maps/countries.geojson ] || curl -fsSL -o assets/maps/countries.geojson $NE/ne_50m_admin_0_countries.geojson || true
+          [ -f assets/maps/states.geojson ] || curl -fsSL -o assets/maps/states.geojson $NE/ne_50m_admin_1_states_provinces.geojson || true
+
+      - name: Pick job
+        id: pick
+        run: |
+          case "${{ github.event.schedule }}" in
+            "41 14 * * *") echo "job=digest" >> "$GITHUB_OUTPUT" ;;
+            "23 */2 * * *") echo "job=watch" >> "$GITHUB_OUTPUT" ;;
+            *) echo "job=${{ inputs.job }}" >> "$GITHUB_OUTPUT" ;;
+          esac
+
+      - name: Run
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_TOKEN: ${{ secrets.YT_TOKEN }}
+        run: python naukri.py ${{ steps.pick.outputs.job }} ${{ inputs.dry_run && '--dry-run' || '' }}
+
+      - name: Save test videos
+        if: inputs.dry_run
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-videos
+          path: output/**/*.mp4
+          retention-days: 3
+
+      - name: Remember what was seen and posted
+        if: always() && !inputs.dry_run
+        run: |
+          git config user.name "naukri-bot"
+          git config user.email "naukri-bot@users.noreply.github.com"
+          git add state.json 2>/dev/null || exit 0
+          git diff --cached --quiet && exit 0
+          git commit -qm "bot: update state"
+          git pull --rebase -q && git push -q
