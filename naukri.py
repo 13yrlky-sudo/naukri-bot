@@ -214,11 +214,34 @@ def ai_json(prompt, cfg, prefer="gemini", temperature=0.4):
 
 # ============================================================================ watching sources
 
+def plain_links(url):
+    """Fallback without a browser: fetch the HTML and pull out the links."""
+    r = requests.get(url, headers={"User-Agent": UA}, timeout=90, verify=False)
+    r.raise_for_status()
+    out = []
+    for m in re.finditer(r'<a\b[^>]*href=["\']([^"\'#]+)["\'][^>]*>(.*?)</a>', r.text, re.S | re.I):
+        href, inner = m.group(1).strip(), html.unescape(re.sub(r"<[^>]+>", " ", m.group(2)))
+        if href.startswith(("javascript:", "mailto:", "tel:")):
+            continue
+        text = re.sub(r"\s+", " ", inner).strip()
+        out.append((text, urljoin(url, href), text))
+    return out
+
+
 def page_links(page, url):
     """Render a page (many govt sites need JavaScript) and return [(text, absolute_url)]."""
     links = []
     try:
-        page.goto(url, wait_until="domcontentloaded", timeout=45000)
+        try:
+            page.goto(url, wait_until="domcontentloaded", timeout=60000)
+        except Exception as first:
+            try:  # slow site: try the plain way before giving up
+                got = plain_links(url)
+                if got:
+                    return got, None
+            except Exception:
+                pass
+            raise first
         page.wait_for_timeout(2500)
         raw = page.evaluate("""() => Array.from(document.querySelectorAll('a[href]')).map(a => [
             (a.innerText || a.title || a.getAttribute('aria-label') || '').trim().replace(/\\s+/g,' '),
