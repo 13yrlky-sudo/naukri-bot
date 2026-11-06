@@ -2683,7 +2683,7 @@
    },
    "found": "2026-11-06T11:28:27.209132+05:30",
    "short": null,
-   "digest": null
+   "digest": "VzoEFVo_Qyc"
   },
   {
    "source": "Patna High Court",
@@ -2714,7 +2714,7 @@
    },
    "found": "2026-11-06T13:46:32.322460+05:30",
    "short": null,
-   "digest": null
+   "digest": "VzoEFVo_Qyc"
   },
   {
    "source": "AIIMS New Delhi",
@@ -2744,10 +2744,10 @@
    },
    "found": "2026-11-06T13:49:04.357551+05:30",
    "short": null,
-   "digest": null
+   "digest": "VzoEFVo_Qyc"
   }
  ],
- "upload_day": "2026-11-05",
+ "upload_day": "2026-11-06",
  "uploads_today": 1,
  "retry": []
 }
