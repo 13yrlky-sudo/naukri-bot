@@ -3657,7 +3657,7 @@
    },
    "found": "2026-11-12T11:30:17.447558+05:30",
    "short": null,
-   "digest": null
+   "digest": "ceFHZ1IRWOc"
   },
   {
    "source": "AIIMS New Delhi",
@@ -3687,10 +3687,10 @@
    },
    "found": "2026-11-12T19:50:38.259148+05:30",
    "short": null,
-   "digest": null
+   "digest": "ceFHZ1IRWOc"
   }
  ],
- "upload_day": "2026-11-11",
- "uploads_today": 5,
+ "upload_day": "2026-11-12",
+ "uploads_today": 1,
  "retry": []
 }
