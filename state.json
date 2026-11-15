@@ -4009,7 +4009,7 @@
    },
    "found": "2026-11-15T05:03:47.636263+05:30",
    "short": null,
-   "digest": null
+   "digest": "YTtKZiKAK6Y"
   },
   {
    "source": "AIIMS New Delhi",
@@ -4039,7 +4039,7 @@
    },
    "found": "2026-11-15T05:07:52.422777+05:30",
    "short": null,
-   "digest": null
+   "digest": "YTtKZiKAK6Y"
   },
   {
    "source": "AIIMS New Delhi",
@@ -4069,7 +4069,7 @@
    },
    "found": "2026-11-15T05:09:56.098517+05:30",
    "short": null,
-   "digest": null
+   "digest": "YTtKZiKAK6Y"
   },
   {
    "source": "AIIMS New Delhi",
@@ -4099,7 +4099,7 @@
    },
    "found": "2026-11-15T05:12:20.472557+05:30",
    "short": null,
-   "digest": null
+   "digest": "YTtKZiKAK6Y"
   },
   {
    "source": "AIIMS New Delhi",
@@ -4129,7 +4129,7 @@
    },
    "found": "2026-11-15T05:12:25.122849+05:30",
    "short": null,
-   "digest": null
+   "digest": "YTtKZiKAK6Y"
   },
   {
    "source": "AIIMS New Delhi",
@@ -4159,10 +4159,10 @@
    },
    "found": "2026-11-15T05:12:29.369761+05:30",
    "short": null,
-   "digest": null
+   "digest": "YTtKZiKAK6Y"
   }
  ],
- "upload_day": "2026-11-13",
- "uploads_today": 3,
+ "upload_day": "2026-11-15",
+ "uploads_today": 1,
  "retry": []
 }
