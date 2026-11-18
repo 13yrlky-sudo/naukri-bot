@@ -4542,7 +4542,7 @@
    },
    "found": "2026-11-18T11:28:51.139320+05:30",
    "short": null,
-   "digest": null
+   "digest": "lMFrdpB3nvE"
   },
   {
    "source": "AIIMS New Delhi",
@@ -4573,7 +4573,7 @@
    },
    "found": "2026-11-18T11:28:55.646154+05:30",
    "short": null,
-   "digest": null
+   "digest": "lMFrdpB3nvE"
   },
   {
    "source": "AIIMS New Delhi",
@@ -4604,7 +4604,7 @@
    },
    "found": "2026-11-18T11:29:00.579361+05:30",
    "short": null,
-   "digest": null
+   "digest": "lMFrdpB3nvE"
   },
   {
    "source": "AIIMS New Delhi",
@@ -4635,7 +4635,7 @@
    },
    "found": "2026-11-18T11:29:13.053131+05:30",
    "short": null,
-   "digest": null
+   "digest": "lMFrdpB3nvE"
   },
   {
    "source": "AIIMS New Delhi",
@@ -4666,7 +4666,7 @@
    },
    "found": "2026-11-18T11:29:30.794669+05:30",
    "short": null,
-   "digest": null
+   "digest": "lMFrdpB3nvE"
   },
   {
    "source": "IIT Delhi",
@@ -4696,7 +4696,7 @@
    },
    "found": "2026-11-18T13:48:16.183875+05:30",
    "short": "eV8o_NGmr9g",
-   "digest": null
+   "digest": "lMFrdpB3nvE"
   },
   {
    "source": "IIT Delhi",
@@ -4727,7 +4727,7 @@
    },
    "found": "2026-11-18T13:54:50.899731+05:30",
    "short": "UE2NYLKykz8",
-   "digest": null
+   "digest": "lMFrdpB3nvE"
   },
   {
    "source": "AIIMS New Delhi",
@@ -4757,7 +4757,7 @@
    },
    "found": "2026-11-18T17:28:32.987608+05:30",
    "short": null,
-   "digest": null
+   "digest": "lMFrdpB3nvE"
   },
   {
    "source": "AIIMS New Delhi",
@@ -4787,7 +4787,7 @@
    },
    "found": "2026-11-18T17:30:44.934714+05:30",
    "short": null,
-   "digest": null
+   "digest": "lMFrdpB3nvE"
   },
   {
    "source": "AIIMS New Delhi",
@@ -4817,7 +4817,7 @@
    },
    "found": "2026-11-18T17:31:34.588330+05:30",
    "short": null,
-   "digest": null
+   "digest": "lMFrdpB3nvE"
   },
   {
    "source": "AIIMS New Delhi",
@@ -4847,11 +4847,11 @@
    },
    "found": "2026-11-18T17:32:09.947604+05:30",
    "short": null,
-   "digest": null
+   "digest": "lMFrdpB3nvE"
   }
  ],
  "upload_day": "2026-11-18",
- "uploads_today": 2,
+ "uploads_today": 3,
  "retry": [
   {
    "source": "AIIMS New Delhi",
