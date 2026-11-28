@@ -4681,7 +4681,7 @@
    },
    "found": "2026-11-28T01:27:39.555850+05:30",
    "short": null,
-   "digest": null
+   "digest": "LonFy6UVGQo"
   },
   {
    "source": "AIIMS New Delhi",
@@ -4712,7 +4712,7 @@
    },
    "found": "2026-11-28T03:22:08.622537+05:30",
    "short": null,
-   "digest": null
+   "digest": "LonFy6UVGQo"
   },
   {
    "source": "AIIMS New Delhi",
@@ -4743,7 +4743,7 @@
    },
    "found": "2026-11-28T07:47:17.109395+05:30",
    "short": null,
-   "digest": null
+   "digest": "LonFy6UVGQo"
   },
   {
    "source": "AIIMS New Delhi",
@@ -4773,7 +4773,7 @@
    },
    "found": "2026-11-28T13:42:15.823538+05:30",
    "short": null,
-   "digest": null
+   "digest": "LonFy6UVGQo"
   },
   {
    "source": "AIIMS New Delhi",
@@ -4803,11 +4803,11 @@
    },
    "found": "2026-11-28T13:42:19.225152+05:30",
    "short": null,
-   "digest": null
+   "digest": "LonFy6UVGQo"
   }
  ],
- "upload_day": "2026-11-27",
- "uploads_today": 4,
+ "upload_day": "2026-11-28",
+ "uploads_today": 1,
  "retry": [
   {
    "source": "Patna High Court",
